@@ -1,0 +1,25 @@
+runtime: java11
+handlers:
+  - url: .*
+    script: 'this field is required, but ignored'
+instance_class: F4
+resources:
+  cpu: 8
+  memory_gb: 51.6
+  disk_size_gb: 10
+  volumes:
+    - volume_type: tmpfs
+      size_gb: 0.5
+      name: ramdisk1
+liveness_check:
+  initial_delay_sec: 300
+  check_interval_sec: 30
+  timeout_sec: 4
+  failure_threshold: 4
+  success_threshold: 2
+readiness_check:
+  check_interval_sec: 5
+  timeout_sec: 4
+  failure_threshold: 2
+  success_threshold: 2
+  app_start_timeout_sec: 300

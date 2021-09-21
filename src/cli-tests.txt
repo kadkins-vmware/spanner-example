@@ -1,0 +1,10 @@
+
+for i in {1..10}; do \
+curl -H"Content-Type: application/json" -d'{"description": "My orders", "items": [{"description": "Android Phone", "quantity": "1"}]}' http://localhost:8080/api/orders \
+; done
+
+
+Invoke-WebRequest http://localhost:8080/api/orders `
+-Method 'POST' `
+-ContentType 'application/json; charset=utf-8' `
+-Body '{"description": "My orders", "items": [{"description": "Android Phone", "quantity": "1"}]}' 
